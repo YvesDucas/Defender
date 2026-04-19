@@ -1,16 +1,16 @@
 /** Defender native resolution */
-export const NATIVE_WIDTH = 292;
+export const NATIVE_WIDTH = 560; // 21:9 ratio at 240 height
 export const NATIVE_HEIGHT = 240;
 
-export const RENDER_SCALE = 3;
-export const CANVAS_WIDTH = NATIVE_WIDTH * RENDER_SCALE;   // 876
-export const CANVAS_HEIGHT = NATIVE_HEIGHT * RENDER_SCALE;  // 720
+export const RENDER_SCALE = 9;   // 9 * 240 = 2160 (4K height)
+export const CANVAS_WIDTH = NATIVE_WIDTH * RENDER_SCALE;   // 5040
+export const CANVAS_HEIGHT = NATIVE_HEIGHT * RENDER_SCALE;  // 2160
 
 export const TARGET_FPS = 60;
 export const FRAME_TIME = 1000 / TARGET_FPS;
 
 /** World dimensions */
-export const WORLD_WIDTH_SCREENS = 7;
+export const WORLD_WIDTH_SCREENS = 12;
 export const WORLD_WIDTH = NATIVE_WIDTH * WORLD_WIDTH_SCREENS * RENDER_SCALE;
 export const NUM_HUMANOIDS = 10;
 

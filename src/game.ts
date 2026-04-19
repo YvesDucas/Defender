@@ -415,6 +415,8 @@ export class Game {
     this.lastTime = time;
     this.accumulator += Math.min(delta, 100);
 
+    this.input.poll();
+
     while (this.accumulator >= FRAME_TIME) {
       this.fsm.update(FRAME_TIME);
       this.input.endFrame();

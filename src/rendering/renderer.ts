@@ -338,25 +338,26 @@ export class Renderer {
     }
     ctx.stroke();
 
-    // Player on scanner
+    // Player on scanner (8x8)
     const px = (wrapX(world.player.x) / WORLD_WIDTH) * CANVAS_WIDTH;
     ctx.fillStyle = COLORS.scannerPlayer;
-    ctx.fillRect(px - 2, SCANNER_HEIGHT * 0.3, 4, 4);
+    ctx.fillRect(px - 4, SCANNER_HEIGHT * 0.3, 8, 8);
 
-    // Enemies on scanner
+    // Enemies on scanner (4x4)
     for (const e of world.enemies) {
       if (!e.alive) continue;
       const ex = (wrapX(e.x) / WORLD_WIDTH) * CANVAS_WIDTH;
       ctx.fillStyle = COLORS.scannerEnemy;
-      ctx.fillRect(ex - 1, SCANNER_HEIGHT * 0.2 + (e.y / CANVAS_HEIGHT) * SCANNER_HEIGHT * 0.6, 2, 2);
+      const ey = SCANNER_HEIGHT * 0.2 + (e.y / CANVAS_HEIGHT) * SCANNER_HEIGHT * 0.6;
+      ctx.fillRect(ex - 2, ey, 4, 4);
     }
 
-    // Humanoids on scanner
+    // Humanoids on scanner (4x5)
     for (const h of world.humanoids) {
       if (!h.alive) continue;
       const hx = (wrapX(h.x) / WORLD_WIDTH) * CANVAS_WIDTH;
       ctx.fillStyle = COLORS.scannerHumanoid;
-      ctx.fillRect(hx - 1, SCANNER_HEIGHT * 0.7, 2, 3);
+      ctx.fillRect(hx - 2, SCANNER_HEIGHT * 0.7, 4, 5);
     }
   }
 
